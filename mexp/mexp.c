@@ -52,7 +52,7 @@ int main(int argc,char ** argv) {
     
     //print result matrix
     for (x = 0; x < size; x++) {
-        for (int y = 0; y < size-1; y++) {
+        for (y = 0; y < size-1; y++) {
             printf("%d ",result[x][y]);
         }
         printf("%d",result[x][size-1]);

@@ -19,7 +19,7 @@ int main(int argc,char** argv) {
     FILE * f = NULL;
     char op;
     int value;
-    size_t size;
+    size_t size = 0;
 
     if (argc < 2) {
         printf("error\n");
