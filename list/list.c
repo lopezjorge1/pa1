@@ -40,9 +40,9 @@ int main(int argc,char** argv) {
     
     fseek(f,0,SEEK_END);
     size = ftell(f); //get the size of the file pointer
-    
-    if (f == 0) { //if file pointer is 0, then the file is empty
-        printf("0");
+
+    if (size == 0) { //if file pointer is 0, then the file is empty
+        printf("0\n");
         exit(0);
     }
 
