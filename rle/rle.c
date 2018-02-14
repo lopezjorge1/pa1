@@ -23,7 +23,8 @@ int main(int argc, char ** argv) {
     if (strlen(original) < strlen(compressed)) {
         printf("%s\n",original);
     } else {
-        for (int i = 0; i < strlen(compressed); i += 2) {
+        int i;
+        for (i = 0; i < strlen(compressed); i += 2) {
             printf("%c%d",compressed[i],compressed[i+1]);
         }
         printf("\n");
@@ -46,7 +47,8 @@ char * rle(char * s,int length) {
     c = s[0]; //first character of string
     tracker++;
 
-    for (int i = 1; i < length; i++) {
+    int i;
+    for (i = 1; i < length; i++) {
         if (isdigit(s[i])) {
             printf("error\n");
             exit(0);

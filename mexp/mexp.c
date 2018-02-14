@@ -32,14 +32,15 @@ int main(int argc,char ** argv) {
     base = (int **) malloc(size * sizeof(int *));
 
     //allocate memory for the rows of the matrix
-    for (int i = 0; i < size; i++) {
+    int i;
+    for (i = 0; i < size; i++) {
         base[i] = (int *) malloc(size * sizeof(int));
     }
-
+    int x,y;
     //input matrix values
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            fscanf(f,"%d\t ",&base[i][j]);
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
+            fscanf(f,"%d\t ",&base[x][y]);
         }
         fscanf(f,"\n");
     }
@@ -50,16 +51,16 @@ int main(int argc,char ** argv) {
     result = exponentiate(base,size,exponent); 
     
     //print result matrix
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size-1; j++) {
-            printf("%d ",result[i][j]);
+    for (x = 0; x < size; x++) {
+        for (int y = 0; y < size-1; y++) {
+            printf("%d ",result[x][y]);
         }
-        printf("%d",result[i][size-1]);
+        printf("%d",result[x][size-1]);
         printf("\n");
     }
 
     //free memory in the matrices
-    for (int i = 0; i < size; i++) {
+    for (i = 0; i < size; i++) {
         free(base[i]);
         free(result[i]);
     }
@@ -79,7 +80,8 @@ int ** exponentiate(int ** base,int size,int exponent) {
         return base;
     }
 
-    for (int i = 0; i < exponent-1; i++) {
+    int i;
+    for (i = 0; i < exponent-1; i++) {
         product = multiply(m,base,size);
         m = product;
     }
@@ -91,18 +93,19 @@ int ** multiply(int ** m,int ** base,int size) {
     //allocate space for result matrix
     int ** result = (int **) malloc(size * sizeof(int *));
 
-    for (int i = 0; i < size; i++) {
+    int i,j,k;
+    for (i = 0; i < size; i++) {
         result[i] = (int *) malloc(size * sizeof(int));
         //set every element in the matrix to 0
-        for (int j = 0; j < size; j++) {
+        for (j = 0; j < size; j++) {
             result[i][j] = 0;
         }
     }
 
     //multiply the m matrix by the base matrix
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            for (int k = 0; k < size; k++) {
+    for (i = 0; i < size; i++) {
+        for (j = 0; j < size; j++) {
+            for (k = 0; k < size; k++) {
                 result[i][j] += m[i][k] * base[k][j];
             }
         }

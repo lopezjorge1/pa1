@@ -17,7 +17,8 @@ int main(int argc,char ** argv) {
     newS = (char *) malloc(length + 1); //add one more byte for null-terminating character
     
     //loop through string and capitalize characters
-    for (int i = 0; i < length; i++) {
+    int i;
+    for (i = 0; i < length; i++) {
         if (original[i] >= 'A' && original[i] >= 'Z') {
             newS[i] = original[i] - 32;
         } else {

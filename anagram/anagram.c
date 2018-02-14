@@ -34,9 +34,10 @@ void swap(char * p1,char * p2) {
 void sort(char * original,int length) {
 
     //loop until to second to last char then 3rd to last,etc.
-    for (int i = 0; i < length-1; i++) { 
+    int i,j;
+    for (i = 0; i < length-1; i++) { 
 
-        for (int j = 0; j < length-1-i; j++) {
+        for (j = 0; j < length-1-i; j++) {
             if (original[j] > original[j+1]) {
                 swap(&original[j],&original[j+1]);
             }
